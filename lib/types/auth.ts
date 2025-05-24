@@ -5,20 +5,17 @@ const userModSchema = z.object({
     .string({
       required_error: "Email is required",
     })
-    .email("Enter a valid email")
-    .default("jo.akpu@gmail.com"),
+    .email("Enter a valid email"),
   password: z
     .string({
       required_error: "Password is required",
     })
-    .min(8, "Password must be at least 8 characters")
-    .default("password123"),
+    .min(8, "Password must be at least 8 characters"),
   name: z
     .string({
       required_error: "Name cannot be blank",
     })
-    .min(3, "Name must be at least 3 characters")
-    .default("Joe Akpu"),
+    .min(3, "Name must be at least 3 characters"),
 
   pin: z.string({ required_error: "OTP is required" }).max(6, {
     message: "Pin must be 6 digits",
