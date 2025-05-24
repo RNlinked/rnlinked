@@ -1,18 +1,27 @@
 <script setup lang="ts">
+import { useIsMobile } from "~/stores/use-mobile";
+
 const props = withDefaults(
   defineProps<{
-    pageCtx?: string;
-    right?: string;
+    pageTitle?: string;
+    right?: boolean;
     showNavigateBackBtn?: boolean;
     showLogoIcon?: boolean;
   }>(),
   {
-    pageCtx: undefined,
-    right: undefined,
     showNavigateBackBtn: false,
     showLogoIcon: false,
   }
 );
+const { isMobile, isPending } = useIsMobile();
+
+const showLogo = computed(() => {
+  if (!isMobile.value || isPending || props.pageTitle) {
+    return false;
+  }
+
+  return true;
+});
 </script>
 
 <template>
@@ -28,10 +37,19 @@ const props = withDefaults(
         icon="solar:arrow-left-outline"
         class="rounded-full"
       />
-      <h2 class="text-lg font-medium">{{ props.pageCtx }}</h2>
+      <h2 v-if="pageTitle" class="text-lg font-medium">
+        {{ props.pageTitle }}
+      </h2>
+      <Logo v-else-if="showLogo" :show-logo="props.showLogoIcon" />
     </div>
     <div>
-      {{ props.right }}
+      <slot v-if="props.right" name="right" />
+      <AppNavItem
+        v-else
+        icon="solar:bell-bold"
+        disabled
+        route="/notifications"
+      />
     </div>
   </nav>
 </template>

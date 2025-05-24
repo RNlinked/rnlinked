@@ -2,7 +2,7 @@
 
 <template>
   <div class="min-h-[100dvh] grid grid-rows-[auto_1fr_auto]">
-    <AppNavBar showNavigateBackBtn />
+    <AppNavBar showNavigateBackBtn page-title=" " right />
 
     <!-- <ul class="hidden md:flex items-center justify-end gap-3 md:gap-6">
         <AuthButton
