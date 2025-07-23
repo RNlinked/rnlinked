@@ -1,0 +1,60 @@
+@utility app-bg {
+  @apply bg-accent dark:bg-celery-100/10;
+}
+
+@utility hover-bg {
+  @apply hover:bg-accent hover:font-stretch-125% dark:hover:bg-celery-100/15;
+}
+
+@utility flx-col {
+  @apply flex flex-col;
+}
+
+@utility flx-col-ctr {
+  @apply flex flex-col items-center;
+}
+@utility flx-col-rev {
+  @apply flex flex-col-reverse;
+}
+
+@utility flex-ctr {
+  @apply flex items-center;
+}
+
+@utility flex-ctr-ctr {
+  @apply flex items-center justify-center;
+}
+
+@utility flex-ctr-end {
+  @apply flex items-center justify-end;
+}
+
+@utility flex-ctr-ard {
+  @apply flex items-center justify-around;
+}
+
+@utility flex-ctr-btw {
+  @apply flex items-center justify-between;
+}
+
+@utility dropdown-menu {
+  @apply flex flex-col justify-start items-start gap-1 overflow-auto  fixed p-2  border rounded-lg shadow-lg text-nowrap w-72 z-50;
+  & button {
+    @apply px-3 py-1.5 rounded-sm w-full text-left;
+  }
+  & button:hover {
+    @apply hover-bg;
+  }
+  & button.is-selected {
+    @apply bg-neutral-200 dark:bg-neutral-700/70;
+  }
+}
+
+@utility is-selected {
+  & button.is-selected {
+    @apply bg-neutral-200/50 dark:bg-neutral-700/30;
+  }
+  .dropdown-menu &button {
+    @apply bg-neutral-200 dark:bg-neutral-700/70;
+  }
+}
