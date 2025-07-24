@@ -76,7 +76,7 @@ const socialLinks = [
 
       <div>
         <h3 class="font-semibold text-2xl">Company</h3>
-        <div class="flex flex-col gap-3 mt-4">
+        <div class="flex flex-col gap-3 my-4">
           <NuxtLink to="" class="hover:underline hover:underline-offset-4">
             About Us
           </NuxtLink>
@@ -90,6 +90,7 @@ const socialLinks = [
             Contact Us
           </NuxtLink>
         </div>
+        <AppThemeSwitcher class="border rounded-lg p-2" />
       </div>
     </section>
     <hr class="border-tradewind-600 my-16" />
